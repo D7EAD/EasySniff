@@ -1,6 +1,18 @@
 # EasySniff
+EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts unnecessary technical information and makes monitoring traffic a lot easier for users. It provides a clean GUI with customizable tools and settings that the user can put to use. This tool was made to be used as an alternative to some other sniffers that may seem haphazardly made. Furthermore, it is to be used for educational purposes in the sector of networking oriented-programming.
 
-... to be added
+<br/>
+
+# Features
+Some functions found within EasySniff are as follows:
+  - Full-fledged sniffing GUI oriented around the IPv4 and UDP protocols--support for more will come in the future.
+  - Immediate geolocation of any captured IP address--non-local.
+  - Immediate ISP-related information returned for captured IPs.
+  - Easy data export methods.
+  - Ability to ping any captured address on the fly--two clicks away!
+  - Ability to look up more narrowed, specific information regarding an address.
+  - Options to show more advanced data rgarding captured packets.
+  - ...and more!
 
 <br/>
 

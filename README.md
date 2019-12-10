@@ -11,7 +11,7 @@ Some functions and features within EasySniff are as follows:
   - Full sniffing GUI oriented around the IPv4 and UDP protocols--support for more will likely come in the future.
   - Immediate geolocation of any captured IP address--non-local.
   - Immediate ISP-related information returned for captured IPs.
-  - Service integrity information regarding an ISP--if the host has known server security technology.
+  - Service integrity information regarding an ISP--if the host has known security technology.
   - Easy data export methods--IP and packet data.
   - Ability to ping any captured address on the fly--two clicks away!
   - Ability to quickly scan a chosen IP for any open ports.

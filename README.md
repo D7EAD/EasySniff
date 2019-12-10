@@ -12,9 +12,21 @@ Some functions and features within EasySniff are as follows:
   - Immediate ISP-related information returned for captured IPs.
   - Easy data export methods.
   - Ability to ping any captured address on the fly--two clicks away!
+  - Ability to quickly scan a chosen IP for open any ports.
   - Ability to look up more narrowed, specific information regarding an address.
   - Options to show more advanced data rgarding captured packets.
   - ...and more!
+
+<br/>
+
+# Control Schemes
+EasySniff has a few control schemes for some functions that it performs. THese control schemes can be found below
+  - Single click [any mouse key]:
+    - ...to copy any selected data in any shown row
+  - Double click [any mouse key]:
+    - ...to ping a selected IP from an appropriate cell.
+  - Single click [any mouse key] + P:
+    - ...to perform a port scan on an IP from an appropriate cell.
 
 <br/>
 

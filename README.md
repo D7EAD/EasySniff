@@ -20,7 +20,7 @@ Some functions and features within EasySniff are as follows:
 <br/>
 
 # Control Schemes
-EasySniff has a few control schemes for some functions that it performs. THese control schemes can be found below
+EasySniff has a few control schemes for some functions that it performs. These control schemes can be found below
   - Single click [any mouse key]:
     - ...to copy any selected data in any shown row
   - Double click [any mouse key]:

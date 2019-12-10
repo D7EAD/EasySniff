@@ -8,7 +8,7 @@ Some functions and features within EasySniff are as follows:
   - Compact executable--insanely small! Roughly 100KB.
   - Highly organized interface.
   - Multi-threaded design--100% smooth operation.
-  - Full-fledged sniffing GUI oriented around the IPv4 and UDP protocols--support for more will likely come in the future.
+  - Full sniffing GUI oriented around the IPv4 and UDP protocols--support for more will likely come in the future.
   - Immediate geolocation of any captured IP address--non-local.
   - Immediate ISP-related information returned for captured IPs.
   - Service integrity information regarding an ISP--if the host has known server security technology.

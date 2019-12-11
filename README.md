@@ -1,9 +1,3 @@
-<style>
-  img {
-    align: middle;
-  }
-</style>
-
 <img src="https://raw.githubusercontent.com/defec1iv3/EasySniff/master/icon.ico?token=AKDPESND2K7JJJFRSMXNNOS56E5DO" align="middle">
 
 # Abstract

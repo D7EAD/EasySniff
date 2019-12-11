@@ -1,6 +1,6 @@
-<p align="center" style="font-size:60px">
+<p align="center">
   <img src="https://raw.githubusercontent.com/defec1iv3/EasySniff/master/icon.ico?token=AKDPESL4O7CSAPGHK5EC3DC56FSUM" align="middle" width="200px" height="200px">
-  <i>EasySniff</i>
+  <h2>EasySniff</h2>
 </p>
 
 # Abstract

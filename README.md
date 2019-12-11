@@ -6,7 +6,7 @@ EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts 
 # Features
 Some functions and features within EasySniff are as follows:
   - Compact executable--insanely small! Roughly 100KB.
-  - Highly organized interface.
+  - Highly organized interface--you will not get lost.
   - Multi-threaded design--100% smooth operation.
   - Full sniffing GUI oriented around the IPv4 and UDP protocols--support for more will likely come in the future.
   - Immediate geolocation of any captured IP address--non-local.
@@ -24,7 +24,7 @@ Some functions and features within EasySniff are as follows:
 # Control Schemes
 EasySniff has a few control schemes--shortcuts--for some functions that it performs. These control schemes can be found below
   - Single click [any mouse key]:
-    - ...to copy any selected data in any shown row
+    - ...to copy any selected data in any shown cell.
   - Double click [any mouse key]:
     - ...to ping a selected IP from an appropriate cell.
   - Single click [any mouse key] + P:

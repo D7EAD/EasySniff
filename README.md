@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/defec1iv3/EasySniff/master/icon.ico?token=AKDPESND2K7JJJFRSMXNNOS56E5DO" style="align: center;">
+<img src="https://raw.githubusercontent.com/defec1iv3/EasySniff/master/icon.ico?token=AKDPESND2K7JJJFRSMXNNOS56E5DO" style="align:middle;">
 
 # Abstract
 EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts unnecessary technical information and makes monitoring traffic a lot easier for users. It provides a clean GUI with customizable tools and settings that the user can put to use. This tool was made to be used as an alternative to some other sniffers that may seem haphazardly made. Furthermore, it is to be used for educational purposes in the sector of network-oriented programming.

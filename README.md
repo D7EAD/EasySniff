@@ -1,5 +1,5 @@
 <p align="center">
-  ![Logo](icon.ico?raw=true "Logo")
+  <img src="https://github.com/defec1iv3/EasySniff/blob/master/icon.ico" width="190px" height="190px" align="center">
   <i>EasySniff</i>
 </p>
 

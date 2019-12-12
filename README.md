@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/defec1iv3/EasySniff/master/icon.ico?token=AKDPESKO7CMG7WQQKPMIQ3S56FTKQ" align="middle" width="190px" height="190px">
+  <img src="blob:https://pasteboard.co/95f60204-8abf-42fe-bfb3-4aa0aa4c5621" align="middle" width="190px" height="190px">
   <i>EasySniff</i>
 </p>
 

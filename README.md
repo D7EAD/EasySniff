@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://pasteboard.co/IKVkDls.x-icon" align="middle" width="190px" height="190px">
+  ![Logo](icon.ico?raw=true "Logo")
   <i>EasySniff</i>
 </p>
 

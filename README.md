@@ -41,8 +41,8 @@ EasySniff has a few control schemes--shortcuts--for some functions that it perfo
     
 <br/>
 
-# Intended Audience
-The intended audience to use this program or its source code can be the following:
+# Intended Audiences
+The intended audiences to use this program or its source code can be the following:
   - Script kiddies on XBOX, PlayStation, or, hell... even PC!
   - Genuine people who want to learn something.
   - People who want to get ideas inspired by this tool.

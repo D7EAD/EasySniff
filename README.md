@@ -48,6 +48,15 @@ All responsibility of this program's usage is assumed by, and only by, the user.
 
 <br/>
 
+# Intended Audience
+The intended audience to use this program or its source code can be the following:
+  - Script kiddies on XBOX, PlayStation, or, hell... even PC!
+  - Genuine people who want to learn something.
+  - People who want to get ideas inspired by this tool.
+  - Literally anyone else.
+
+<br/>
+
 # Credits
 Programming, GUI Design: defect1v3 (defec1iv3/Malversed/Disassembly)
 

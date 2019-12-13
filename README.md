@@ -21,7 +21,6 @@ Some functions and features within EasySniff are as follows:
   - Ability to ping any captured address on the fly--two clicks away!
   - Ability to quickly scan a chosen IP for any open ports.
   - Ability to look up more narrowed, specific information regarding an address.
-  - Ability to easily retrieve DNS information about a captured host.
   - Options to show more advanced data regarding captured packets.
   - ...and more!
 
@@ -37,8 +36,6 @@ EasySniff has a few control schemes--shortcuts--for some functions that it perfo
     - ...to copy any selected data in any shown cell.
   - Single click [any mouse key] + P:
     - ...to perform a port scan on an IP from an appropriate cell.
-  - Single click [any mouse key] + D:
-    - ...to perform DNS lookup on an IP from an appropriate cell.
   - Double click [any mouse key]:
     - ...to ping a selected IP from an appropriate cell.
     

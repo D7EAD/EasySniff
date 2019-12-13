@@ -29,13 +29,19 @@ Some functions and features within EasySniff are as follows:
 
 # Control Schemes
 EasySniff has a few control schemes--shortcuts--for some functions that it performs. These control schemes can be found below
+  - Key click [C]:
+    - ...to clear the captured addresses (or packet data).
+  - Key click [S]:
+    - ...to begin or end the sniffing process.
   - Single click [any mouse key]:
     - ...to copy any selected data in any shown cell.
-  - Double click [any mouse key]:
-    - ...to ping a selected IP from an appropriate cell.
   - Single click [any mouse key] + P:
     - ...to perform a port scan on an IP from an appropriate cell.
-
+  - Single click [any mouse key] + D:
+    - ...to perform DNS lookup on an IP from an appropriate cell.
+  - Double click [any mouse key]:
+    - ...to ping a selected IP from an appropriate cell.
+    
 <br/>
 
 # Agreement

@@ -41,13 +41,6 @@ EasySniff has a few control schemes--shortcuts--for some functions that it perfo
     
 <br/>
 
-# Agreement
-By using EasySniff, you agree upon the following conditions: (1). You affirm that you understand EasySniff is strictly an open-source alternative and is to be used for education regarding network-oriented programming. (2). You will not use EasySniff or its source code with any malicious intent or to commit unapproved network recon, aiding in DoS/DDoS attacking other networks, etc. (3). You are entirely responsible for your use of this application and not the developer(s), dependency developer(s), or anyone else except for you.
-
-All responsibility of this program's usage is assumed by, and only by, the user.
-
-<br/>
-
 # Intended Audience
 The intended audience to use this program or its source code can be the following:
   - Script kiddies on XBOX, PlayStation, or, hell... even PC!
@@ -61,3 +54,10 @@ The intended audience to use this program or its source code can be the followin
 Programming, GUI Design: defect1v3 (defec1iv3/Malversed/Disassembly)
 
 Quality Assurance Testers (Bug Testers): none yet!
+
+<br/>
+
+# Agreement
+By using EasySniff, you agree upon the following conditions: (1). You affirm that you understand EasySniff is strictly an open-source alternative and is to be used for education regarding network-oriented programming. (2). You will not use EasySniff or its source code with any malicious intent or to commit unapproved network recon, aiding in DoS/DDoS attacking other networks, etc. (3). You are entirely responsible for your use of this application and not the developer(s), dependency developer(s), or anyone else except for you.
+
+All responsibility of this program's usage is assumed by, and only by, the user.

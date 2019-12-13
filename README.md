@@ -27,7 +27,7 @@ Some functions and features within EasySniff are as follows:
 <br/>
 
 # Control Schemes
-EasySniff has a few control schemes--shortcuts--for some functions that it performs. These control schemes can be found below
+EasySniff has a few control schemes--shortcuts--for some functions that it performs. These control schemes can be found below:
   - Key click [C]:
     - ...to clear the captured addresses (or packet data).
   - Key click [S]:

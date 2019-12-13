@@ -10,15 +10,15 @@ EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts 
 
 # Features
 Some functions and features within EasySniff are as follows:
-  - Compact executable--insanely small! Roughly 100KB.
-  - Highly organized interface--you will not get lost.
+  - Compact executable--roughly 250KB!
+  - Highly organized interface--I have OCD.
   - Multi-threaded design--100% smooth operation.
-  - Full sniffing GUI oriented around the IPv4 and UDP protocols--support for more will likely come in the future.
+  - Full sniffing GUI oriented around the IPv4 and UDP protocols--support for more will likely come in the future--maybe.
   - Immediate geolocation of any captured IP address--non-local.
   - Immediate ISP-related information returned for captured IPs.
-  - Service integrity information regarding an ISP--if the host has known security technology.
+  - Service integrity information regarding an ISP--known security technology.
   - Easy data export methods--IP and packet data.
-  - Ability to ping any captured address on the fly--two clicks away!
+  - Ability to ping any captured address on the fly!
   - Ability to quickly scan a chosen IP for any open ports.
   - Ability to look up more narrowed, specific information regarding an address.
   - Options to show more advanced data regarding captured packets.

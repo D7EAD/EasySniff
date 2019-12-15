@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EasySniff", "EasySniff\EasySniff.vcxproj", "{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Debug|x64.ActiveCfg = Debug|x64
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Debug|x64.Build.0 = Debug|x64
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Debug|x86.ActiveCfg = Debug|Win32
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Debug|x86.Build.0 = Debug|Win32
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Release|x64.ActiveCfg = Release|x64
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Release|x64.Build.0 = Release|x64
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Release|x86.ActiveCfg = Release|x64
+		{A9ED90EA-8EB4-4B9C-82FE-1E2F148A9BFE}.Release|x86.Build.0 = Release|x64
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Debug|x64.ActiveCfg = Debug
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Debug|x64.Build.0 = Debug
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Debug|x86.ActiveCfg = Debug
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Release|x64.ActiveCfg = Release
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Release|x64.Build.0 = Release
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Release|x86.ActiveCfg = Release
+		{98FF7A52-2707-4A9E-96E3-0C3A25A14CFB}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19372A46-8102-4810-9D15-98BACB53FC7E}
+	EndGlobalSection
+EndGlobal

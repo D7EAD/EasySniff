@@ -1,0 +1,14 @@
+﻿  main_form.cpp
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(774,1): warning C4947:  'System::Threading::Thread::Suspend': marked as obsolete
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(774,1): message :  Message: 'Thread.Suspend has been deprecated.  Please use other classes in System.Threading, such as Monitor, Mutex, Event, and Semaphore, to synchronize Threads or protect resources.  http://go.microsoft.com/fwlink/?linkid=14202'
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(793,1): warning C4947:  'System::Threading::Thread::Resume': marked as obsolete
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(793,1): message :  Message: 'Thread.Resume has been deprecated.  Please use other classes in System.Threading, such as Monitor, Mutex, Event, and Semaphore, to synchronize Threads or protect resources.  http://go.microsoft.com/fwlink/?linkid=14202'
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(1017,29): warning C4101:  'e': unreferenced local variable
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(1045,35): warning C4101:  'e': unreferenced local variable
+  packetInfo.cpp
+C:\Users\vypho\Desktop\EasySniff\EasySniff\main_form.h(1060,35): warning C4101:  'e': unreferenced local variable
+  Generating Code...
+C:\Users\vypho\Desktop\EasySniff\EasySniff\packetInfo.cpp(65,41): warning C4101:  'e': unreferenced local variable
+C:\Users\vypho\Desktop\EasySniff\EasySniff\packetInfo.cpp(110): warning C4715:  'packetInfo::portScan': not all control paths return a value
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  EasySniff.vcxproj -> C:\Users\vypho\Desktop\EasySniff\x64\Release\EasySniff.exe

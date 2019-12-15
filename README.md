@@ -72,3 +72,8 @@ All responsibility of this program's usage is assumed by, and only by, the user.
 Programming, GUI Design: defect1v3 (defec1iv3/Malversed/Disassembly)
 
 Quality Assurance Testers (Bug Testers): none yet!
+
+<br/>
+
+# Notes
+EasySniff version is 1.0--first release. There may be a pesky bug-or-two, but if caught, they will be fixed accordingly.

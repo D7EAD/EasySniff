@@ -24,7 +24,7 @@ Some functions and features within EasySniff are as follows:
   - Options to show more advanced data regarding captured packets.
   - ...and more!
 <p align="center">
-  <img src="https://github.com/defec1iv3/EasySniff/blob/master/images/img_main.PNG" width="1000" height="300">
+  <img src="https://github.com/defec1iv3/EasySniff/blob/master/images/img_main.PNG" width="1000" height="350">
 </p>
 
 <br/>

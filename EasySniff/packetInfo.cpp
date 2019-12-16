@@ -131,16 +131,3 @@ array<System::String^>^ packetInfo::getExtendedInfo() {
 	packetData[3] = this->extended_Payload;
 	return packetData;
 }
-
-void packetInfo::clearDataStruct() {
-	this->ipAddress = "";
-	this->srcPort = "";
-	this->dstPort = "";
-	this->isp = "";
-	this->location = "";
-	this->protection = "";
-	this->extended_Source = "";
-	this->extended_Checksum = "";
-	this->extended_fragOptions = "";
-	this->extended_Payload = "";
-}

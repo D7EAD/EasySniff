@@ -929,7 +929,6 @@ namespace EasySniff {
 				lookupIPFormObj->Show();
 			}
 		private: System::Void backToSnifferButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (sniffing)
 			this->selectedPage = PAGE_MAIN;
 			this->interfaceList->Visible = true;
 			this->sniffButton->Visible = true;

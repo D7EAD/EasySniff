@@ -39,9 +39,8 @@ ref class packetInfo {
 	public: List<System::String^>^ ipList = gcnew List<System::String^>;
 	public: void getPacketData(); // returns ipAddress, srcPort, and dstPort
 	public: System::String^ sendICMPEcho();
-public: System::String^ portScan(unsigned int port);
+	public: System::String^ portScan(unsigned int port);
 	public: array<System::String^>^ getExtendedInfo(); // returns extended packet data
 	public: array<System::String^>^ getInfo(); // returns a row of data located in <data>
-	public: void clearDataStruct();
 	public: void getInterface(ComboBox^ comboBox);
 };

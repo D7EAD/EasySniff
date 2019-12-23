@@ -3,6 +3,19 @@
   <i>EasySniff</i>
 </p>
 
+# Sections
+  - <a href="#abstract">Abstract</a>
+  - <a href="#dependencies">Dependencies</a>
+  - <a href="#tutorial">Tutorial</a>
+  - <a href="#features">Features</a>
+  - <a href="#control-schemes">Control Schemes</a>
+  - <a href="#intended-audiences">Intended Audiences</a>
+  - <a href="#agreement">Agreement</a>
+  - <a href="#credits">Credits</a>
+  - <a href="#notes">Notes</a>
+
+<br/>
+
 # Abstract
 EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts unnecessary technical information and makes monitoring traffic a lot easier for users. It provides a clean GUI with customizable tools and settings that the user can put to use. This tool was made to be used as an alternative to some other sniffers that may seem haphazardly made. Furthermore, it is to be used for educational purposes in the sector of network-oriented programming.
 
@@ -13,6 +26,17 @@ EasySniff REQUIRES the following in order to operate:
   - WinPCap 4.1.3 (found <a href="http://www.winpcap.org">here</a>).
   - MSVC++ 2010 redist (found <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632">here</a>).
   - MSVC++ 2013 redist (found <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784">here</a>).
+
+<br/>
+
+# Tutorial
+As some may have issues using EasySniff, a tutorial is here to help! The general process of installation and usage is as follows below:
+  - Download and install the dependencies listed <a href="#dependencies">here</a>.
+  - Download the .zip file from this repository.
+  - Run setup\Release\setup.exe, this will install it to your Program Files.
+    - After installation, EasySniff will now be added to your Desktop.
+  - Open EasySniff and it should run fine.
+    - From this point, select the adapter/interface that your desired traffic will go through and sniff!
 
 <br/>
 

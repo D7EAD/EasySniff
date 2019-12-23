@@ -3,7 +3,8 @@
   <i>EasySniff</i>
 </p>
 
-# Sections
+# Abstract
+EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts unnecessary technical information and makes monitoring traffic a lot easier for users. It provides a clean GUI with customizable tools and settings that the user can put to use. This tool was made to be used as an alternative to some other sniffers that may seem haphazardly made. Furthermore, it is to be used for educational purposes in the sector of network-oriented programming.
   - <a href="#abstract">Abstract</a>
   - <a href="#dependencies">Dependencies</a>
   - <a href="#tutorial">Tutorial</a>
@@ -13,11 +14,6 @@
   - <a href="#agreement">Agreement</a>
   - <a href="#credits">Credits</a>
   - <a href="#notes">Notes</a>
-
-<br/>
-
-# Abstract
-EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts unnecessary technical information and makes monitoring traffic a lot easier for users. It provides a clean GUI with customizable tools and settings that the user can put to use. This tool was made to be used as an alternative to some other sniffers that may seem haphazardly made. Furthermore, it is to be used for educational purposes in the sector of network-oriented programming.
 
 <br/>
 

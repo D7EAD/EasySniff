@@ -31,7 +31,7 @@ EasySniff REQUIRES the following in order to operate:
 
 # Tutorial
 As some may have issues using EasySniff, a tutorial is here to help! The general process of installation and usage is as follows below:
-  - Download and install the dependencies listed <a href="#dependencies">here</a>.
+  - Download and install the dependencies listed above.
   - Download the .zip file from this repository.
   - Run setup\Release\setup.exe, this will install it to your Program Files.
     - After installation, EasySniff will now be added to your Desktop.

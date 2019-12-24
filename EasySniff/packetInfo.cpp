@@ -32,72 +32,66 @@ void packetInfo::getPacketData() { // comboBox used for selecting interface
 					!packet->Ethernet->IpV4->Source.ToString()->StartsWith("192.168.") &&
 					!packet->Ethernet->IpV4->Source.ToString()->StartsWith("0.")) {
 					if (settings_values::udpEnabled == true) {
-						if (!settings_values::captureInfo) {
-							if (packet->Ethernet->IpV4->Source.ToString() != ""
-								&& packet->Ethernet->IpV4->Udp->SourcePort.ToString() != ""
-								&& packet->Ethernet->IpV4->Udp->DestinationPort.ToString() != "") {
-								this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
-								this->srcPort = packet->Ethernet->IpV4->Udp->SourcePort.ToString();
-								this->dstPort = packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
-								break;
+						if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Udp) {
+							if (!settings_values::captureInfo) {
+								if (packet->Ethernet->IpV4->Source.ToString() != ""
+									&& packet->Ethernet->IpV4->Udp->SourcePort.ToString() != ""
+									&& packet->Ethernet->IpV4->Udp->DestinationPort.ToString() != "") {
+									this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
+									this->srcPort = packet->Ethernet->IpV4->Udp->SourcePort.ToString();
+									this->dstPort = packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
+									break;
+								}
 							}
-						}
-						else if (settings_values::captureInfo) {
-							if (packet->Ethernet->IpV4->Source.ToString() != ""
-								&& packet->Ethernet->IpV4->Udp->SourcePort.ToString() != ""
-								&& packet->Ethernet->IpV4->Udp->DestinationPort.ToString() != "") {
-								this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
-								this->srcPort = packet->Ethernet->IpV4->Udp->SourcePort.ToString();
-								this->dstPort = packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
-								this->extended_Source = packet->Ethernet->IpV4->Source.ToString()
-									+ ":" + packet->Ethernet->IpV4->Udp->SourcePort.ToString()
-									+ " -> " + packet->Ethernet->IpV4->Destination.ToString()
-									+ ":" + packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
-								if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Udp) {
+							else if (settings_values::captureInfo) {
+								if (packet->Ethernet->IpV4->Source.ToString() != ""
+									&& packet->Ethernet->IpV4->Udp->SourcePort.ToString() != ""
+									&& packet->Ethernet->IpV4->Udp->DestinationPort.ToString() != "") {
+									this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
+									this->srcPort = packet->Ethernet->IpV4->Udp->SourcePort.ToString();
+									this->dstPort = packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
+									this->extended_Source = packet->Ethernet->IpV4->Source.ToString()
+										+ ":" + packet->Ethernet->IpV4->Udp->SourcePort.ToString()
+										+ " -> " + packet->Ethernet->IpV4->Destination.ToString()
+										+ ":" + packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
 									this->extended_Proto = "UDP";
+									this->extended_Checksum = packet->IpV4->HeaderChecksum.ToString();
+									this->extended_fragOptions = packet->IpV4->Fragmentation.Options.ToString();
+									this->extended_Payload = "Len. " + packet->Ethernet->IpV4->Udp->Payload->Length + ": " + packet->Ethernet->IpV4->Udp->Payload->ToHexadecimalString();
+									break;
 								}
-								else if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Tcp) {
-									this->extended_Proto = "TCP";
-								}
-								this->extended_Checksum = packet->IpV4->HeaderChecksum.ToString();
-								this->extended_fragOptions = packet->IpV4->Fragmentation.Options.ToString();
-								this->extended_Payload = "Len. " + packet->Ethernet->IpV4->Udp->Payload->Length + ": " + packet->Ethernet->IpV4->Udp->Payload->ToHexadecimalString();
-								break;
 							}
 						}
 					}
 					else if (settings_values::tcpEnabled == true) {
-						if (!settings_values::captureInfo) {
-							if (packet->Ethernet->IpV4->Source.ToString() != ""
-								&& packet->Ethernet->IpV4->Tcp->SourcePort.ToString() != ""
-								&& packet->Ethernet->IpV4->Tcp->DestinationPort.ToString() != "") {
-								this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
-								this->srcPort = packet->Ethernet->IpV4->Tcp->SourcePort.ToString();
-								this->dstPort = packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
-								break;
+						if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Tcp) {
+							if (!settings_values::captureInfo) {
+								if (packet->Ethernet->IpV4->Source.ToString() != ""
+									&& packet->Ethernet->IpV4->Tcp->SourcePort.ToString() != ""
+									&& packet->Ethernet->IpV4->Tcp->DestinationPort.ToString() != "") {
+									this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
+									this->srcPort = packet->Ethernet->IpV4->Tcp->SourcePort.ToString();
+									this->dstPort = packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
+									break;
+								}
 							}
-						}
-						else if (settings_values::captureInfo) {
-							if (packet->Ethernet->IpV4->Source.ToString() != ""
-								&& packet->Ethernet->IpV4->Tcp->SourcePort.ToString() != ""
-								&& packet->Ethernet->IpV4->Tcp->DestinationPort.ToString() != "") {
-								this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
-								this->srcPort = packet->Ethernet->IpV4->Tcp->SourcePort.ToString();
-								this->dstPort = packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
-								this->extended_Source = packet->Ethernet->IpV4->Source.ToString()
-									+ ":" + packet->Ethernet->IpV4->Tcp->SourcePort.ToString()
-									+ " -> " + packet->Ethernet->IpV4->Destination.ToString()
-									+ ":" + packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
-								if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Udp) {
-									this->extended_Proto = "UDP";
-								}
-								else if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Tcp) {
+							else if (settings_values::captureInfo) {
+								if (packet->Ethernet->IpV4->Source.ToString() != ""
+									&& packet->Ethernet->IpV4->Tcp->SourcePort.ToString() != ""
+									&& packet->Ethernet->IpV4->Tcp->DestinationPort.ToString() != "") {
+									this->ipAddress = packet->Ethernet->IpV4->Source.ToString();
+									this->srcPort = packet->Ethernet->IpV4->Tcp->SourcePort.ToString();
+									this->dstPort = packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
+									this->extended_Source = packet->Ethernet->IpV4->Source.ToString()
+										+ ":" + packet->Ethernet->IpV4->Tcp->SourcePort.ToString()
+										+ " -> " + packet->Ethernet->IpV4->Destination.ToString()
+										+ ":" + packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
 									this->extended_Proto = "TCP";
+									this->extended_Checksum = packet->IpV4->HeaderChecksum.ToString();
+									this->extended_fragOptions = packet->IpV4->Fragmentation.Options.ToString();
+									this->extended_Payload = "Len. " + packet->Ethernet->IpV4->Tcp->Payload->Length + ": " + packet->Ethernet->IpV4->Tcp->Payload->ToHexadecimalString();
+									break;
 								}
-								this->extended_Checksum = packet->IpV4->HeaderChecksum.ToString();
-								this->extended_fragOptions = packet->IpV4->Fragmentation.Options.ToString();
-								this->extended_Payload = "Len. " + packet->Ethernet->IpV4->Tcp->Payload->Length + ": " + packet->Ethernet->IpV4->Tcp->Payload->ToHexadecimalString();
-								break;
 							}
 						}
 					}

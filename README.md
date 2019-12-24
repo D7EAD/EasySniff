@@ -41,7 +41,7 @@ As some may have issues using EasySniff, a tutorial is here to help! The general
 
 # Features
 Some functions and features within EasySniff are as follows:
-  - Compact executable--roughly 250KB!
+  - Compact executable--roughly 260KB!
   - Highly organized interface--I have OCD.
   - Multi-threaded design--100% smooth operation.
   - Full sniffing GUI oriented around the IPv4, TCP, and UDP protocols.

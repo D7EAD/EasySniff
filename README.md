@@ -16,6 +16,7 @@ Sections of EasySniff are as follows:
   - <a href="#agreement">Agreement</a>
   - <a href="#credits">Credits</a>
   - <a href="#notes">Notes</a>
+  - <a href="#known-issues">Known Issues</a>
 
 <br/>
 

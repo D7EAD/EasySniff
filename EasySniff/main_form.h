@@ -60,10 +60,10 @@ namespace EasySniff {
 		private: System::Windows::Forms::DataGridView^ packetInfoDataGrid;
 		private: System::Windows::Forms::Button^ packetDataButton;
 		private: System::Windows::Forms::CheckBox^ checkBox_ShowPacketData;
-		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
-		private: System::Windows::Forms::DataGridViewTextBoxColumn^ checksum;
-		private: System::Windows::Forms::DataGridViewTextBoxColumn^ fragOptions;
-		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Payload;
+
+
+
+
 		private: bool sniffing = false;
 		private: System::Windows::Forms::Button^ exportButton_PacketData;
 		private: int selectedPage = PAGE_MAIN;
@@ -74,7 +74,15 @@ namespace EasySniff {
 		private: bool portScanKeyDown = false;
 		private: bool threadStopped = false;
 		private: System::Windows::Forms::TextBox^ packetDataGridRowCount;
-		private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
+		private: System::Windows::Forms::CheckBox^ udp_checkbox;
+		private: System::Windows::Forms::CheckBox^ tcp_checkbox;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ checksum;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ fragOptions;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Payload;
+	private: System::Windows::Forms::TextBox^ selectedProto;
+	private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
 
 		public: main_form(void) {
 			InitializeComponent();
@@ -162,6 +170,7 @@ namespace EasySniff {
 			this->exportButton = (gcnew System::Windows::Forms::Button());
 			this->packetInfoDataGrid = (gcnew System::Windows::Forms::DataGridView());
 			this->IPandPorts = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Protocol = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->checksum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->fragOptions = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Payload = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -173,6 +182,9 @@ namespace EasySniff {
 			this->echoCount_Label = (gcnew System::Windows::Forms::Label());
 			this->echoCount = (gcnew System::Windows::Forms::ComboBox());
 			this->packetDataGridRowCount = (gcnew System::Windows::Forms::TextBox());
+			this->udp_checkbox = (gcnew System::Windows::Forms::CheckBox());
+			this->tcp_checkbox = (gcnew System::Windows::Forms::CheckBox());
+			this->selectedProto = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->packetInfoDataGrid))->BeginInit();
 			this->SuspendLayout();
@@ -332,7 +344,7 @@ namespace EasySniff {
 			this->interfaceList->Location = System::Drawing::Point(297, 29);
 			this->interfaceList->MaxDropDownItems = 25;
 			this->interfaceList->Name = L"interfaceList";
-			this->interfaceList->Size = System::Drawing::Size(479, 28);
+			this->interfaceList->Size = System::Drawing::Size(479, 23);
 			this->interfaceList->TabIndex = 0;
 			this->interfaceList->SelectedValueChanged += gcnew System::EventHandler(this, &main_form::interfaceList_SelectedValueChanged);
 			// 
@@ -367,7 +379,7 @@ namespace EasySniff {
 			this->sniffStatusField->Location = System::Drawing::Point(12, 485);
 			this->sniffStatusField->Name = L"sniffStatusField";
 			this->sniffStatusField->ReadOnly = true;
-			this->sniffStatusField->Size = System::Drawing::Size(135, 20);
+			this->sniffStatusField->Size = System::Drawing::Size(135, 16);
 			this->sniffStatusField->TabIndex = 8;
 			this->sniffStatusField->Text = L"Sniffing: off";
 			// 
@@ -423,7 +435,7 @@ namespace EasySniff {
 			this->interfaceStatusField->Location = System::Drawing::Point(140, 485);
 			this->interfaceStatusField->Name = L"interfaceStatusField";
 			this->interfaceStatusField->ReadOnly = true;
-			this->interfaceStatusField->Size = System::Drawing::Size(980, 20);
+			this->interfaceStatusField->Size = System::Drawing::Size(980, 16);
 			this->interfaceStatusField->TabIndex = 15;
 			this->interfaceStatusField->Text = L"Interface: none";
 			// 
@@ -447,7 +459,7 @@ namespace EasySniff {
 			this->rowCount->Location = System::Drawing::Point(297, 61);
 			this->rowCount->Name = L"rowCount";
 			this->rowCount->ReadOnly = true;
-			this->rowCount->Size = System::Drawing::Size(135, 22);
+			this->rowCount->Size = System::Drawing::Size(135, 18);
 			this->rowCount->TabIndex = 17;
 			this->rowCount->Text = L"Rows: 0";
 			// 
@@ -514,9 +526,9 @@ namespace EasySniff {
 			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
 			this->packetInfoDataGrid->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this->packetInfoDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->packetInfoDataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->packetInfoDataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->IPandPorts,
-					this->checksum, this->fragOptions, this->Payload
+					this->Protocol, this->checksum, this->fragOptions, this->Payload
 			});
 			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
@@ -566,6 +578,12 @@ namespace EasySniff {
 			this->IPandPorts->ReadOnly = true;
 			this->IPandPorts->Width = 250;
 			// 
+			// Protocol
+			// 
+			this->Protocol->HeaderText = L"Protocol";
+			this->Protocol->Name = L"Protocol";
+			this->Protocol->ReadOnly = true;
+			// 
 			// checksum
 			// 
 			this->checksum->HeaderText = L"Checksum";
@@ -588,7 +606,7 @@ namespace EasySniff {
 			this->Payload->MinimumWidth = 6;
 			this->Payload->Name = L"Payload";
 			this->Payload->ReadOnly = true;
-			this->Payload->Width = 561;
+			this->Payload->Width = 461;
 			// 
 			// packetDataButton
 			// 
@@ -612,7 +630,7 @@ namespace EasySniff {
 			this->checkBox_ShowPacketData->ForeColor = System::Drawing::Color::White;
 			this->checkBox_ShowPacketData->Location = System::Drawing::Point(24, 107);
 			this->checkBox_ShowPacketData->Name = L"checkBox_ShowPacketData";
-			this->checkBox_ShowPacketData->Size = System::Drawing::Size(265, 24);
+			this->checkBox_ShowPacketData->Size = System::Drawing::Size(235, 21);
 			this->checkBox_ShowPacketData->TabIndex = 24;
 			this->checkBox_ShowPacketData->Text = L"Show Extensive Packet Data";
 			this->checkBox_ShowPacketData->UseVisualStyleBackColor = true;
@@ -640,7 +658,7 @@ namespace EasySniff {
 			this->portList_Label->ForeColor = System::Drawing::Color::White;
 			this->portList_Label->Location = System::Drawing::Point(20, 373);
 			this->portList_Label->Name = L"portList_Label";
-			this->portList_Label->Size = System::Drawing::Size(180, 20);
+			this->portList_Label->Size = System::Drawing::Size(160, 17);
 			this->portList_Label->TabIndex = 27;
 			this->portList_Label->Text = L"Ports for scanning:";
 			this->portList_Label->Visible = false;
@@ -655,7 +673,7 @@ namespace EasySniff {
 			this->portList->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"1-1024", L"1-65535" });
 			this->portList->Location = System::Drawing::Point(24, 396);
 			this->portList->Name = L"portList";
-			this->portList->Size = System::Drawing::Size(241, 28);
+			this->portList->Size = System::Drawing::Size(241, 23);
 			this->portList->TabIndex = 28;
 			this->portList->Text = L"1-1024";
 			this->portList->Visible = false;
@@ -667,7 +685,7 @@ namespace EasySniff {
 			this->echoCount_Label->ForeColor = System::Drawing::Color::White;
 			this->echoCount_Label->Location = System::Drawing::Point(20, 301);
 			this->echoCount_Label->Name = L"echoCount_Label";
-			this->echoCount_Label->Size = System::Drawing::Size(153, 20);
+			this->echoCount_Label->Size = System::Drawing::Size(136, 17);
 			this->echoCount_Label->TabIndex = 29;
 			this->echoCount_Label->Text = L"ICMP Echo Count:";
 			this->echoCount_Label->Visible = false;
@@ -682,7 +700,7 @@ namespace EasySniff {
 			this->echoCount->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"1-1024", L"1-65535" });
 			this->echoCount->Location = System::Drawing::Point(24, 324);
 			this->echoCount->Name = L"echoCount";
-			this->echoCount->Size = System::Drawing::Size(241, 28);
+			this->echoCount->Size = System::Drawing::Size(241, 23);
 			this->echoCount->TabIndex = 30;
 			this->echoCount->Text = L"256";
 			this->echoCount->Visible = false;
@@ -695,21 +713,70 @@ namespace EasySniff {
 			this->packetDataGridRowCount->Enabled = false;
 			this->packetDataGridRowCount->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
 			this->packetDataGridRowCount->ForeColor = System::Drawing::Color::White;
-			this->packetDataGridRowCount->Location = System::Drawing::Point(404, 61);
+			this->packetDataGridRowCount->Location = System::Drawing::Point(368, 61);
 			this->packetDataGridRowCount->Name = L"packetDataGridRowCount";
 			this->packetDataGridRowCount->ReadOnly = true;
-			this->packetDataGridRowCount->Size = System::Drawing::Size(190, 22);
+			this->packetDataGridRowCount->Size = System::Drawing::Size(172, 18);
 			this->packetDataGridRowCount->TabIndex = 31;
 			this->packetDataGridRowCount->Text = L"Data Rows: 0";
 			this->packetDataGridRowCount->Visible = false;
 			// 
+			// udp_checkbox
+			// 
+			this->udp_checkbox->AutoSize = true;
+			this->udp_checkbox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->udp_checkbox->Checked = true;
+			this->udp_checkbox->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->udp_checkbox->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
+			this->udp_checkbox->ForeColor = System::Drawing::Color::White;
+			this->udp_checkbox->Location = System::Drawing::Point(668, 60);
+			this->udp_checkbox->Name = L"udp_checkbox";
+			this->udp_checkbox->Size = System::Drawing::Size(51, 22);
+			this->udp_checkbox->TabIndex = 32;
+			this->udp_checkbox->Text = L"UDP";
+			this->udp_checkbox->UseVisualStyleBackColor = false;
+			this->udp_checkbox->CheckedChanged += gcnew System::EventHandler(this, &main_form::Udp_checkbox_CheckedChanged);
+			// 
+			// tcp_checkbox
+			// 
+			this->tcp_checkbox->AutoSize = true;
+			this->tcp_checkbox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->tcp_checkbox->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
+			this->tcp_checkbox->ForeColor = System::Drawing::Color::White;
+			this->tcp_checkbox->Location = System::Drawing::Point(725, 60);
+			this->tcp_checkbox->Name = L"tcp_checkbox";
+			this->tcp_checkbox->Size = System::Drawing::Size(51, 22);
+			this->tcp_checkbox->TabIndex = 33;
+			this->tcp_checkbox->Text = L"TCP";
+			this->tcp_checkbox->UseVisualStyleBackColor = false;
+			this->tcp_checkbox->CheckedChanged += gcnew System::EventHandler(this, &main_form::Tcp_checkbox_CheckedChanged);
+			// 
+			// selectedProto
+			// 
+			this->selectedProto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->selectedProto->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->selectedProto->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
+			this->selectedProto->ForeColor = System::Drawing::Color::White;
+			this->selectedProto->Location = System::Drawing::Point(546, 61);
+			this->selectedProto->Name = L"selectedProto";
+			this->selectedProto->ReadOnly = true;
+			this->selectedProto->Size = System::Drawing::Size(116, 18);
+			this->selectedProto->TabIndex = 34;
+			this->selectedProto->Text = L"Protocol: UDP";
+			// 
 			// main_form
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
 			this->ClientSize = System::Drawing::Size(1121, 506);
+			this->Controls->Add(this->selectedProto);
+			this->Controls->Add(this->tcp_checkbox);
+			this->Controls->Add(this->udp_checkbox);
 			this->Controls->Add(this->exportButton);
 			this->Controls->Add(this->lookupSpecificIPButton);
 			this->Controls->Add(this->exportButton_PacketData);
@@ -852,6 +919,12 @@ namespace EasySniff {
 			}
 		}
 		private: System::Void settingsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+			this->udp_checkbox->Visible = false;
+			this->udp_checkbox->Enabled = false;
+			this->tcp_checkbox->Visible = false;
+			this->tcp_checkbox->Enabled = false;
+			this->selectedProto->Visible = false;
+			this->selectedProto->Enabled = false;
 			this->interfaceList->Visible = false;
 			this->sniffButton->Visible = false;
 			this->clearRowsButton->Visible = false;
@@ -892,6 +965,12 @@ namespace EasySniff {
 			this->echoCount_Label->Enabled = true;
 		}
  		private: System::Void ToolsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+			this->udp_checkbox->Visible = false;
+			this->udp_checkbox->Enabled = false;
+			this->tcp_checkbox->Visible = false;
+			this->tcp_checkbox->Enabled = false;
+			this->selectedProto->Visible = false;
+			this->selectedProto->Enabled = false;
 			this->interfaceList->Visible = false;
 			this->sniffButton->Visible = false;
 			this->clearRowsButton->Visible = false;
@@ -930,6 +1009,12 @@ namespace EasySniff {
 			}
 		private: System::Void backToSnifferButton_Click(System::Object^ sender, System::EventArgs^ e) {
 			this->selectedPage = PAGE_MAIN;
+			this->udp_checkbox->Visible = true;
+			this->udp_checkbox->Enabled = true;
+			this->tcp_checkbox->Visible = true;
+			this->tcp_checkbox->Enabled = true;
+			this->selectedProto->Visible = true;
+			this->selectedProto->Enabled = true;
 			this->interfaceList->Visible = true;
 			this->sniffButton->Visible = true;
 			this->clearRowsButton->Visible = true;
@@ -1030,6 +1115,12 @@ namespace EasySniff {
 				this->packetDataButton->Enabled = false;
 				this->packetInfoDataGrid->Visible = true;
 				this->packetInfoDataGrid->Enabled = true;
+				this->udp_checkbox->Visible = false;
+				this->udp_checkbox->Enabled = false;
+				this->tcp_checkbox->Visible = false;
+				this->tcp_checkbox->Enabled = false;
+				this->selectedProto->Visible = false;
+				this->selectedProto->Enabled = false;
 				this->Text = "EasySniff | Packet Manager";
 			}
 		private: System::Void dataGrid_RowsAdded(System::Object^ sender, System::Windows::Forms::DataGridViewRowsAddedEventArgs^ e) {
@@ -1085,6 +1176,28 @@ namespace EasySniff {
 			}
 			else if (e->KeyCode == Keys::C) {
 				this->clearRowsButton_Click(this, e);
+			}
+		}
+		private: System::Void Udp_checkbox_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+			if (!udp_checkbox->Checked) {
+				settings_values::tcpEnabled = true;
+				this->tcp_checkbox->Checked = true;
+			}
+			else if (udp_checkbox->Checked) {
+				settings_values::tcpEnabled = false;
+				this->tcp_checkbox->Checked = false;
+				this->selectedProto->Text = "Protocol: UDP";
+			}
+		}
+		private: System::Void Tcp_checkbox_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+			if (!tcp_checkbox->Checked) {
+				settings_values::udpEnabled = true;
+				this->udp_checkbox->Checked = true;
+			}
+			else if (tcp_checkbox->Checked) {
+				settings_values::udpEnabled = false;
+				this->udp_checkbox->Checked = false;
+				this->selectedProto->Text = "Protocol: TCP";
 			}
 		}
 	};

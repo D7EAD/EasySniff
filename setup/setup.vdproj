@@ -15,56 +15,44 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_048B22AA567AC59B8EA6FED43E106591"
-        "OwnerKey" = "8:_98A02EBB77910F60B5510FA56C8D4015"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_048B22AA567AC59B8EA6FED43E106591"
+        "MsmKey" = "8:_283A86391F33861C6A4411FC71CDE36C"
         "OwnerKey" = "8:_D0254CADD9B74A0BA7CD2A2E666FFDDA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_048B22AA567AC59B8EA6FED43E106591"
-        "OwnerKey" = "8:_462D76C50FC0433CA3E4452749ABE79A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_33B4B7E85B78BC50BD470330030B0E8B"
-        "OwnerKey" = "8:_D0254CADD9B74A0BA7CD2A2E666FFDDA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_33B4B7E85B78BC50BD470330030B0E8B"
-        "OwnerKey" = "8:_9A34C877915543D8A902C8FA27449EDF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_33B4B7E85B78BC50BD470330030B0E8B"
-        "OwnerKey" = "8:_462D76C50FC0433CA3E4452749ABE79A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_33B4B7E85B78BC50BD470330030B0E8B"
-        "OwnerKey" = "8:_048B22AA567AC59B8EA6FED43E106591"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_33B4B7E85B78BC50BD470330030B0E8B"
-        "OwnerKey" = "8:_98A02EBB77910F60B5510FA56C8D4015"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_462D76C50FC0433CA3E4452749ABE79A"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66D32EB23A2DB62A1A49F357D73D8FDF"
+        "OwnerKey" = "8:_462D76C50FC0433CA3E4452749ABE79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66D32EB23A2DB62A1A49F357D73D8FDF"
+        "OwnerKey" = "8:_283A86391F33861C6A4411FC71CDE36C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66D32EB23A2DB62A1A49F357D73D8FDF"
+        "OwnerKey" = "8:_D0254CADD9B74A0BA7CD2A2E666FFDDA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66D32EB23A2DB62A1A49F357D73D8FDF"
+        "OwnerKey" = "8:_9A34C877915543D8A902C8FA27449EDF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_66D32EB23A2DB62A1A49F357D73D8FDF"
+        "OwnerKey" = "8:_B74E997653F3F5827E3A844C11FAFAA6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -81,14 +69,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_98A02EBB77910F60B5510FA56C8D4015"
+        "MsmKey" = "8:_9A34C877915543D8A902C8FA27449EDF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B74E997653F3F5827E3A844C11FAFAA6"
+        "OwnerKey" = "8:_462D76C50FC0433CA3E4452749ABE79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B74E997653F3F5827E3A844C11FAFAA6"
         "OwnerKey" = "8:_D0254CADD9B74A0BA7CD2A2E666FFDDA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9A34C877915543D8A902C8FA27449EDF"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_B74E997653F3F5827E3A844C11FAFAA6"
+        "OwnerKey" = "8:_283A86391F33861C6A4411FC71CDE36C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,6 +118,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_283A86391F33861C6A4411FC71CDE36C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9A34C877915543D8A902C8FA27449EDF"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,19 +142,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_98A02EBB77910F60B5510FA56C8D4015"
+        "OwnerKey" = "8:_B74E997653F3F5827E3A844C11FAFAA6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_048B22AA567AC59B8EA6FED43E106591"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_33B4B7E85B78BC50BD470330030B0E8B"
+        "OwnerKey" = "8:_66D32EB23A2DB62A1A49F357D73D8FDF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -246,51 +246,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_048B22AA567AC59B8EA6FED43E106591"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_283A86391F33861C6A4411FC71CDE36C"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PcapDotNet.Packets, Version=1.0.4.25028, Culture=neutral, PublicKeyToken=06a20bc2fabb1931, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:PcapDotNet.Core, Version=1.0.4.25149, Culture=neutral, PublicKeyToken=06a20bc2fabb1931, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_048B22AA567AC59B8EA6FED43E106591"
+                    "_283A86391F33861C6A4411FC71CDE36C"
                     {
-                    "Name" = "8:PcapDotNet.Packets.dll"
+                    "Name" = "8:PcapDotNet.Core.DLL"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:PcapDotNet.Packets.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D1B395D559A947A7A32AD4BA0520EC97"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33B4B7E85B78BC50BD470330030B0E8B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PcapDotNet.Base, Version=1.0.4.25027, Culture=neutral, PublicKeyToken=06a20bc2fabb1931, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_33B4B7E85B78BC50BD470330030B0E8B"
-                    {
-                    "Name" = "8:PcapDotNet.Base.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:PcapDotNet.Base.dll"
+            "SourcePath" = "8:PcapDotNet.Core.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D1B395D559A947A7A32AD4BA0520EC97"
@@ -337,6 +306,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_66D32EB23A2DB62A1A49F357D73D8FDF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PcapDotNet.Base, Version=1.0.4.25027, Culture=neutral, PublicKeyToken=06a20bc2fabb1931, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_66D32EB23A2DB62A1A49F357D73D8FDF"
+                    {
+                    "Name" = "8:PcapDotNet.Base.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PcapDotNet.Base.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D1B395D559A947A7A32AD4BA0520EC97"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6CB81333E2D24041A9D3283329829904"
@@ -401,37 +401,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_98A02EBB77910F60B5510FA56C8D4015"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PcapDotNet.Core, Version=1.0.4.25149, Culture=neutral, PublicKeyToken=06a20bc2fabb1931, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_98A02EBB77910F60B5510FA56C8D4015"
-                    {
-                    "Name" = "8:PcapDotNet.Core.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:PcapDotNet.Core.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D1B395D559A947A7A32AD4BA0520EC97"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9A34C877915543D8A902C8FA27449EDF"
             {
             "AssemblyRegister" = "3:1"
@@ -461,6 +430,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B74E997653F3F5827E3A844C11FAFAA6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PcapDotNet.Packets, Version=1.0.4.25028, Culture=neutral, PublicKeyToken=06a20bc2fabb1931, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B74E997653F3F5827E3A844C11FAFAA6"
+                    {
+                    "Name" = "8:PcapDotNet.Packets.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:PcapDotNet.Packets.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D1B395D559A947A7A32AD4BA0520EC97"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D0254CADD9B74A0BA7CD2A2E666FFDDA"
@@ -550,15 +550,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EasySniff"
-        "ProductCode" = "8:{6FE07BFA-D7CA-4C67-BBA1-6374121E1B41}"
-        "PackageCode" = "8:{A03CD15E-1249-43E2-A759-8B0D7A1BCD37}"
+        "ProductCode" = "8:{BFA1E264-C483-4188-9886-2B068CA3F08C}"
+        "PackageCode" = "8:{9E4732FF-C821-48DE-BD5C-173050493F1A}"
         "UpgradeCode" = "8:{52138988-9CA6-4A41-AD59-D531988AC624}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:EasySniff"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

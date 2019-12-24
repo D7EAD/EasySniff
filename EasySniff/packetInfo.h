@@ -33,6 +33,7 @@ ref class packetInfo {
 		System::String^ location = "";
 		System::String^ protection = "";
 		System::String^ extended_Source = "";
+		System::String^ extended_Proto = "";
 		System::String^ extended_Checksum = "";
 		System::String^ extended_fragOptions = "";
 		System::String^ extended_Payload = "";

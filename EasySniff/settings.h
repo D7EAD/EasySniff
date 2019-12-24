@@ -16,4 +16,6 @@ ref class settings_values {
 		static System::String^ startPort = "1"; // start at port 1 for scanning by default
 		static System::String^ endPort = "1024"; // end at port 1024 for scanning by default
 		static System::String^ icmpCount = "256"; // ping a destination 256 times by default
+		static bool tcpEnabled = false; // used to check for capture of TCP instead of UDP
+		static bool udpEnabled = true; // used to check for capture of UDP instead of TCP - default
 };

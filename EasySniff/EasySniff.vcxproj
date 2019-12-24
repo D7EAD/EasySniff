@@ -127,7 +127,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\FullTime Manager\FullTime Manager\lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\x64\Release\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PcapDotNet.Base">
       <HintPath>lib\PcapDotNet.Base.dll</HintPath>

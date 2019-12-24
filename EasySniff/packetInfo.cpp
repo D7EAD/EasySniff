@@ -31,7 +31,7 @@ void packetInfo::getPacketData() { // comboBox used for selecting interface
 				if (!packet->Ethernet->IpV4->Source.ToString()->StartsWith("10.") &&
 					!packet->Ethernet->IpV4->Source.ToString()->StartsWith("192.168.") &&
 					!packet->Ethernet->IpV4->Source.ToString()->StartsWith("0.")) {
-					if (settings_values::udpEnabled) {
+					if (settings_values::udpEnabled == true) {
 						if (!settings_values::captureInfo) {
 							if (packet->Ethernet->IpV4->Source.ToString() != ""
 								&& packet->Ethernet->IpV4->Udp->SourcePort.ToString() != ""
@@ -53,7 +53,12 @@ void packetInfo::getPacketData() { // comboBox used for selecting interface
 									+ ":" + packet->Ethernet->IpV4->Udp->SourcePort.ToString()
 									+ " -> " + packet->Ethernet->IpV4->Destination.ToString()
 									+ ":" + packet->Ethernet->IpV4->Udp->DestinationPort.ToString();
-								packet->IpV4->Protocol == IpV4::IpV4Protocol::Udp ? this->extended_Proto = "UDP" : this->extended_Proto = "TCP";
+								if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Udp) {
+									this->extended_Proto = "UDP";
+								}
+								else if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Tcp) {
+									this->extended_Proto = "TCP";
+								}
 								this->extended_Checksum = packet->IpV4->HeaderChecksum.ToString();
 								this->extended_fragOptions = packet->IpV4->Fragmentation.Options.ToString();
 								this->extended_Payload = "Len. " + packet->Ethernet->IpV4->Udp->Payload->Length + ": " + packet->Ethernet->IpV4->Udp->Payload->ToHexadecimalString();
@@ -61,7 +66,7 @@ void packetInfo::getPacketData() { // comboBox used for selecting interface
 							}
 						}
 					}
-					else if (settings_values::tcpEnabled) {
+					else if (settings_values::tcpEnabled == true) {
 						if (!settings_values::captureInfo) {
 							if (packet->Ethernet->IpV4->Source.ToString() != ""
 								&& packet->Ethernet->IpV4->Tcp->SourcePort.ToString() != ""
@@ -83,7 +88,12 @@ void packetInfo::getPacketData() { // comboBox used for selecting interface
 									+ ":" + packet->Ethernet->IpV4->Tcp->SourcePort.ToString()
 									+ " -> " + packet->Ethernet->IpV4->Destination.ToString()
 									+ ":" + packet->Ethernet->IpV4->Tcp->DestinationPort.ToString();
-								packet->IpV4->Protocol == IpV4::IpV4Protocol::Tcp ? this->extended_Proto = "TCP" : this->extended_Proto = "UDP";
+								if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Udp) {
+									this->extended_Proto = "UDP";
+								}
+								else if (packet->Ethernet->IpV4->Protocol == IpV4::IpV4Protocol::Tcp) {
+									this->extended_Proto = "TCP";
+								}
 								this->extended_Checksum = packet->IpV4->HeaderChecksum.ToString();
 								this->extended_fragOptions = packet->IpV4->Fragmentation.Options.ToString();
 								this->extended_Payload = "Len. " + packet->Ethernet->IpV4->Tcp->Payload->Length + ": " + packet->Ethernet->IpV4->Tcp->Payload->ToHexadecimalString();

@@ -32,7 +32,7 @@ EasySniff REQUIRES the following in order to operate:
 As some may have issues using EasySniff, a tutorial is here to help! The general process of installation and usage is as follows below:
   - Download and install the dependencies listed above.
   - Download the .zip file from this repository.
-  - Run setup\Release\setup.exe, this will install it to your Program Files.
+  - Run setup\Release\setup.msi, this will install it to your Program Files.
     - After installation, EasySniff will now be added to your Desktop.
   - Open EasySniff and it should run fine.
     - From this point, select the adapter/interface that your desired traffic will go through and sniff!

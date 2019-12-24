@@ -740,7 +740,7 @@ namespace EasySniff {
 			this->selectedProto_ComboBox->ForeColor = System::Drawing::Color::White;
 			this->selectedProto_ComboBox->FormattingEnabled = true;
 			this->selectedProto_ComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"UDP", L"TCP" });
-			this->selectedProto_ComboBox->Location = System::Drawing::Point(684, 56);
+			this->selectedProto_ComboBox->Location = System::Drawing::Point(684, 58);
 			this->selectedProto_ComboBox->MaxDropDownItems = 25;
 			this->selectedProto_ComboBox->Name = L"selectedProto_ComboBox";
 			this->selectedProto_ComboBox->Size = System::Drawing::Size(92, 26);

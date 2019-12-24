@@ -24,6 +24,7 @@ EasySniff REQUIRES the following in order to operate:
   - WinPCap 4.1.3 (found <a href="http://www.winpcap.org">here</a>).
   - MSVC++ 2010 redist (found <a href="https://www.microsoft.com/en-us/download/details.aspx?id=14632">here</a>).
   - MSVC++ 2013 redist (found <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784">here</a>).
+  - MSVC++ 2019 redist (found <a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">here</a>).
 
 <br/>
 

@@ -100,3 +100,8 @@ Quality Assurance Testers (Bug Testers): Johnny
 
 # Notes
 EasySniff version is 1.1.
+
+<br/>
+
+# Known Issues
+  - Incremental use of RAM throughout life of the process (EasySniff.exe).

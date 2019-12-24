@@ -60,10 +60,6 @@ namespace EasySniff {
 		private: System::Windows::Forms::DataGridView^ packetInfoDataGrid;
 		private: System::Windows::Forms::Button^ packetDataButton;
 		private: System::Windows::Forms::CheckBox^ checkBox_ShowPacketData;
-
-
-
-
 		private: bool sniffing = false;
 		private: System::Windows::Forms::Button^ exportButton_PacketData;
 		private: int selectedPage = PAGE_MAIN;
@@ -76,13 +72,13 @@ namespace EasySniff {
 		private: System::Windows::Forms::TextBox^ packetDataGridRowCount;
 		private: System::Windows::Forms::CheckBox^ udp_checkbox;
 		private: System::Windows::Forms::CheckBox^ tcp_checkbox;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ checksum;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ fragOptions;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Payload;
-	private: System::Windows::Forms::TextBox^ selectedProto;
-	private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ checksum;
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ fragOptions;
+		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Payload;
+		private: System::Windows::Forms::TextBox^ selectedProto;
+		private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
 
 		public: main_form(void) {
 			InitializeComponent();

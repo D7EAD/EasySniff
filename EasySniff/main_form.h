@@ -41,13 +41,13 @@ namespace EasySniff {
 		private: System::Windows::Forms::Button^ clearRowsButton;
 		private: packetInfo^ packetInf;
 		private: System::Windows::Forms::Label^ bottomPanel;
-		private: System::Windows::Forms::TextBox^ sniffStatusField;
+
 		private: System::Windows::Forms::Button^ settingsButton;
 		private: System::Windows::Forms::Button^ backToSnifferButton;
 		private: System::Windows::Forms::Button^ settingsSaveButton;
-		private: System::Windows::Forms::TextBox^ interfaceStatusField;
+
 		private: System::Windows::Forms::Label^ saveResultsDialog;
-		private: System::Windows::Forms::TextBox^ rowCount;
+
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IP;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ srcPort;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ dstPort;
@@ -69,16 +69,20 @@ namespace EasySniff {
 		private: System::Windows::Forms::ComboBox^ echoCount;
 		private: bool portScanKeyDown = false;
 		private: bool threadStopped = false;
-		private: System::Windows::Forms::TextBox^ packetDataGridRowCount;
-
 
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ checksum;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ fragOptions;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Payload;
-		private: System::Windows::Forms::TextBox^ selectedProto;
-	private: System::Windows::Forms::ComboBox^ selectedProto_ComboBox;
+
+		private: System::Windows::Forms::ComboBox^ selectedProto_ComboBox;
+	private: System::Windows::Forms::Label^ selectedProto;
+	private: System::Windows::Forms::Label^ packetDataGridRowCount;
+	private: System::Windows::Forms::Label^ rowCount;
+	private: System::Windows::Forms::Label^ interfaceStatusField;
+	private: System::Windows::Forms::Label^ sniffStatusField;
+
 	private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
 
 		public: main_form(void) {
@@ -155,13 +159,10 @@ namespace EasySniff {
 			this->interfaceList = (gcnew System::Windows::Forms::ComboBox());
 			this->clearRowsButton = (gcnew System::Windows::Forms::Button());
 			this->bottomPanel = (gcnew System::Windows::Forms::Label());
-			this->sniffStatusField = (gcnew System::Windows::Forms::TextBox());
 			this->settingsButton = (gcnew System::Windows::Forms::Button());
 			this->backToSnifferButton = (gcnew System::Windows::Forms::Button());
 			this->settingsSaveButton = (gcnew System::Windows::Forms::Button());
-			this->interfaceStatusField = (gcnew System::Windows::Forms::TextBox());
 			this->saveResultsDialog = (gcnew System::Windows::Forms::Label());
-			this->rowCount = (gcnew System::Windows::Forms::TextBox());
 			this->toolsButton = (gcnew System::Windows::Forms::Button());
 			this->lookupSpecificIPButton = (gcnew System::Windows::Forms::Button());
 			this->exportButton = (gcnew System::Windows::Forms::Button());
@@ -178,9 +179,12 @@ namespace EasySniff {
 			this->portList = (gcnew System::Windows::Forms::ComboBox());
 			this->echoCount_Label = (gcnew System::Windows::Forms::Label());
 			this->echoCount = (gcnew System::Windows::Forms::ComboBox());
-			this->packetDataGridRowCount = (gcnew System::Windows::Forms::TextBox());
-			this->selectedProto = (gcnew System::Windows::Forms::TextBox());
 			this->selectedProto_ComboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->selectedProto = (gcnew System::Windows::Forms::Label());
+			this->packetDataGridRowCount = (gcnew System::Windows::Forms::Label());
+			this->rowCount = (gcnew System::Windows::Forms::Label());
+			this->interfaceStatusField = (gcnew System::Windows::Forms::Label());
+			this->sniffStatusField = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->packetInfoDataGrid))->BeginInit();
 			this->SuspendLayout();
@@ -190,7 +194,7 @@ namespace EasySniff {
 			this->sniffButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->sniffButton->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
 			this->sniffButton->ForeColor = System::Drawing::Color::White;
-			this->sniffButton->Location = System::Drawing::Point(800, 9);
+			this->sniffButton->Location = System::Drawing::Point(791, 12);
 			this->sniffButton->Name = L"sniffButton";
 			this->sniffButton->Size = System::Drawing::Size(103, 61);
 			this->sniffButton->TabIndex = 0;
@@ -337,7 +341,7 @@ namespace EasySniff {
 			this->interfaceList->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->interfaceList->ForeColor = System::Drawing::Color::White;
 			this->interfaceList->FormattingEnabled = true;
-			this->interfaceList->Location = System::Drawing::Point(297, 29);
+			this->interfaceList->Location = System::Drawing::Point(297, 50);
 			this->interfaceList->MaxDropDownItems = 25;
 			this->interfaceList->Name = L"interfaceList";
 			this->interfaceList->Size = System::Drawing::Size(479, 23);
@@ -349,7 +353,7 @@ namespace EasySniff {
 			this->clearRowsButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->clearRowsButton->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
 			this->clearRowsButton->ForeColor = System::Drawing::Color::White;
-			this->clearRowsButton->Location = System::Drawing::Point(902, 9);
+			this->clearRowsButton->Location = System::Drawing::Point(900, 12);
 			this->clearRowsButton->Name = L"clearRowsButton";
 			this->clearRowsButton->Size = System::Drawing::Size(103, 61);
 			this->clearRowsButton->TabIndex = 6;
@@ -365,19 +369,6 @@ namespace EasySniff {
 			this->bottomPanel->Name = L"bottomPanel";
 			this->bottomPanel->Size = System::Drawing::Size(1128, 27);
 			this->bottomPanel->TabIndex = 7;
-			// 
-			// sniffStatusField
-			// 
-			this->sniffStatusField->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
-			this->sniffStatusField->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->sniffStatusField->ForeColor = System::Drawing::Color::White;
-			this->sniffStatusField->Location = System::Drawing::Point(12, 485);
-			this->sniffStatusField->Name = L"sniffStatusField";
-			this->sniffStatusField->ReadOnly = true;
-			this->sniffStatusField->Size = System::Drawing::Size(135, 16);
-			this->sniffStatusField->TabIndex = 8;
-			this->sniffStatusField->Text = L"Sniffing: off";
 			// 
 			// settingsButton
 			// 
@@ -422,19 +413,6 @@ namespace EasySniff {
 			this->settingsSaveButton->Visible = false;
 			this->settingsSaveButton->Click += gcnew System::EventHandler(this, &main_form::settingsSaveButton_Click);
 			// 
-			// interfaceStatusField
-			// 
-			this->interfaceStatusField->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
-			this->interfaceStatusField->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->interfaceStatusField->ForeColor = System::Drawing::Color::White;
-			this->interfaceStatusField->Location = System::Drawing::Point(140, 485);
-			this->interfaceStatusField->Name = L"interfaceStatusField";
-			this->interfaceStatusField->ReadOnly = true;
-			this->interfaceStatusField->Size = System::Drawing::Size(980, 16);
-			this->interfaceStatusField->TabIndex = 15;
-			this->interfaceStatusField->Text = L"Interface: none";
-			// 
 			// saveResultsDialog
 			// 
 			this->saveResultsDialog->Enabled = false;
@@ -445,26 +423,12 @@ namespace EasySniff {
 			this->saveResultsDialog->TabIndex = 16;
 			this->saveResultsDialog->Visible = false;
 			// 
-			// rowCount
-			// 
-			this->rowCount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
-			this->rowCount->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->rowCount->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
-			this->rowCount->ForeColor = System::Drawing::Color::White;
-			this->rowCount->Location = System::Drawing::Point(297, 61);
-			this->rowCount->Name = L"rowCount";
-			this->rowCount->ReadOnly = true;
-			this->rowCount->Size = System::Drawing::Size(135, 18);
-			this->rowCount->TabIndex = 17;
-			this->rowCount->Text = L"Rows: 0";
-			// 
 			// toolsButton
 			// 
 			this->toolsButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->toolsButton->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
 			this->toolsButton->ForeColor = System::Drawing::Color::White;
-			this->toolsButton->Location = System::Drawing::Point(1000, 9);
+			this->toolsButton->Location = System::Drawing::Point(1009, 12);
 			this->toolsButton->Name = L"toolsButton";
 			this->toolsButton->Size = System::Drawing::Size(103, 61);
 			this->toolsButton->TabIndex = 18;
@@ -701,52 +665,88 @@ namespace EasySniff {
 			this->echoCount->Text = L"256";
 			this->echoCount->Visible = false;
 			// 
-			// packetDataGridRowCount
-			// 
-			this->packetDataGridRowCount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
-			this->packetDataGridRowCount->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->packetDataGridRowCount->Enabled = false;
-			this->packetDataGridRowCount->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
-			this->packetDataGridRowCount->ForeColor = System::Drawing::Color::White;
-			this->packetDataGridRowCount->Location = System::Drawing::Point(368, 61);
-			this->packetDataGridRowCount->Name = L"packetDataGridRowCount";
-			this->packetDataGridRowCount->ReadOnly = true;
-			this->packetDataGridRowCount->Size = System::Drawing::Size(172, 18);
-			this->packetDataGridRowCount->TabIndex = 31;
-			this->packetDataGridRowCount->Text = L"Data Rows: 0";
-			this->packetDataGridRowCount->Visible = false;
-			// 
-			// selectedProto
-			// 
-			this->selectedProto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(70)));
-			this->selectedProto->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->selectedProto->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
-			this->selectedProto->ForeColor = System::Drawing::Color::White;
-			this->selectedProto->Location = System::Drawing::Point(562, 61);
-			this->selectedProto->Name = L"selectedProto";
-			this->selectedProto->ReadOnly = true;
-			this->selectedProto->Size = System::Drawing::Size(116, 18);
-			this->selectedProto->TabIndex = 34;
-			this->selectedProto->Text = L"Protocol: UDP";
-			// 
 			// selectedProto_ComboBox
 			// 
 			this->selectedProto_ComboBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->selectedProto_ComboBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->selectedProto_ComboBox->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->selectedProto_ComboBox->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
 			this->selectedProto_ComboBox->ForeColor = System::Drawing::Color::White;
 			this->selectedProto_ComboBox->FormattingEnabled = true;
 			this->selectedProto_ComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"UDP", L"TCP" });
-			this->selectedProto_ComboBox->Location = System::Drawing::Point(684, 58);
+			this->selectedProto_ComboBox->Location = System::Drawing::Point(684, 19);
 			this->selectedProto_ComboBox->MaxDropDownItems = 25;
 			this->selectedProto_ComboBox->Name = L"selectedProto_ComboBox";
 			this->selectedProto_ComboBox->Size = System::Drawing::Size(92, 26);
 			this->selectedProto_ComboBox->TabIndex = 35;
-			this->selectedProto_ComboBox->Text = L"UDP";
 			this->selectedProto_ComboBox->SelectedIndexChanged += gcnew System::EventHandler(this, &main_form::SelectedProto_ComboBox_SelectedIndexChanged);
+			// 
+			// selectedProto
+			// 
+			this->selectedProto->AutoSize = true;
+			this->selectedProto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->selectedProto->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
+			this->selectedProto->ForeColor = System::Drawing::Color::White;
+			this->selectedProto->Location = System::Drawing::Point(566, 24);
+			this->selectedProto->Name = L"selectedProto";
+			this->selectedProto->Size = System::Drawing::Size(112, 18);
+			this->selectedProto->TabIndex = 36;
+			this->selectedProto->Text = L"Protocol: UDP";
+			// 
+			// packetDataGridRowCount
+			// 
+			this->packetDataGridRowCount->AutoSize = true;
+			this->packetDataGridRowCount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->packetDataGridRowCount->Enabled = false;
+			this->packetDataGridRowCount->Font = (gcnew System::Drawing::Font(L"Consolas", 11));
+			this->packetDataGridRowCount->ForeColor = System::Drawing::Color::White;
+			this->packetDataGridRowCount->Location = System::Drawing::Point(373, 30);
+			this->packetDataGridRowCount->Name = L"packetDataGridRowCount";
+			this->packetDataGridRowCount->Size = System::Drawing::Size(104, 18);
+			this->packetDataGridRowCount->TabIndex = 37;
+			this->packetDataGridRowCount->Text = L"Data Rows: 0";
+			this->packetDataGridRowCount->Visible = false;
+			// 
+			// rowCount
+			// 
+			this->rowCount->AutoSize = true;
+			this->rowCount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->rowCount->Font = (gcnew System::Drawing::Font(L"Consolas", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->rowCount->ForeColor = System::Drawing::Color::White;
+			this->rowCount->Location = System::Drawing::Point(297, 29);
+			this->rowCount->Name = L"rowCount";
+			this->rowCount->Size = System::Drawing::Size(64, 18);
+			this->rowCount->TabIndex = 38;
+			this->rowCount->Text = L"Rows: 0";
+			// 
+			// interfaceStatusField
+			// 
+			this->interfaceStatusField->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->interfaceStatusField->Font = (gcnew System::Drawing::Font(L"Consolas", 9));
+			this->interfaceStatusField->ForeColor = System::Drawing::Color::White;
+			this->interfaceStatusField->Location = System::Drawing::Point(117, 486);
+			this->interfaceStatusField->Name = L"interfaceStatusField";
+			this->interfaceStatusField->Size = System::Drawing::Size(972, 14);
+			this->interfaceStatusField->TabIndex = 39;
+			this->interfaceStatusField->Text = L"Interface: none";
+			// 
+			// sniffStatusField
+			// 
+			this->sniffStatusField->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->sniffStatusField->Font = (gcnew System::Drawing::Font(L"Consolas", 9));
+			this->sniffStatusField->ForeColor = System::Drawing::Color::White;
+			this->sniffStatusField->Location = System::Drawing::Point(12, 486);
+			this->sniffStatusField->Name = L"sniffStatusField";
+			this->sniffStatusField->Size = System::Drawing::Size(119, 14);
+			this->sniffStatusField->TabIndex = 40;
+			this->sniffStatusField->Text = L"Sniffing: off";
 			// 
 			// main_form
 			// 
@@ -755,18 +755,23 @@ namespace EasySniff {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
 			this->ClientSize = System::Drawing::Size(1121, 506);
-			this->Controls->Add(this->selectedProto_ComboBox);
+			this->Controls->Add(this->packetDataButton);
+			this->Controls->Add(this->backToSnifferButton);
+			this->Controls->Add(this->settingsButton);
+			this->Controls->Add(this->interfaceStatusField);
+			this->Controls->Add(this->interfaceList);
+			this->Controls->Add(this->sniffStatusField);
+			this->Controls->Add(this->rowCount);
+			this->Controls->Add(this->packetDataGridRowCount);
 			this->Controls->Add(this->selectedProto);
+			this->Controls->Add(this->selectedProto_ComboBox);
 			this->Controls->Add(this->exportButton);
 			this->Controls->Add(this->lookupSpecificIPButton);
 			this->Controls->Add(this->exportButton_PacketData);
-			this->Controls->Add(this->packetDataGridRowCount);
 			this->Controls->Add(this->toolsButton);
 			this->Controls->Add(this->sniffButton);
 			this->Controls->Add(this->clearRowsButton);
-			this->Controls->Add(this->rowCount);
 			this->Controls->Add(this->namePanel);
-			this->Controls->Add(this->interfaceList);
 			this->Controls->Add(this->horizontalBackPanel);
 			this->Controls->Add(this->dataGrid);
 			this->Controls->Add(this->echoCount);
@@ -774,13 +779,8 @@ namespace EasySniff {
 			this->Controls->Add(this->portList);
 			this->Controls->Add(this->portList_Label);
 			this->Controls->Add(this->checkBox_ShowPacketData);
-			this->Controls->Add(this->packetDataButton);
 			this->Controls->Add(this->saveResultsDialog);
 			this->Controls->Add(this->settingsSaveButton);
-			this->Controls->Add(this->backToSnifferButton);
-			this->Controls->Add(this->settingsButton);
-			this->Controls->Add(this->interfaceStatusField);
-			this->Controls->Add(this->sniffStatusField);
 			this->Controls->Add(this->bottomPanel);
 			this->Controls->Add(this->packetInfoDataGrid);
 			this->Font = (gcnew System::Drawing::Font(L"Consolas", 10));
@@ -849,6 +849,7 @@ namespace EasySniff {
 		private: System::Void main_form_Load(System::Object^ sender, System::EventArgs^  e) {
 			getDevices(this->interfaceList); // get all interfaces on startup
 			this->packetInf->ipList->Add("");
+			this->selectedProto_ComboBox->SelectedIndex = 0;
 		}
 		private: System::Void clearRowsButton_Click(System::Object^ sender, System::EventArgs^  e) {
 			this->dataGrid->Rows->Clear();
@@ -1077,8 +1078,10 @@ namespace EasySniff {
 			}
 		} private: System::Void packetDataButton_Click(System::Object^ sender, System::EventArgs^ e) {
 				this->selectedPage = PAGE_DATA;
-				this->selectedProto_ComboBox->Visible = false;
-				this->selectedProto_ComboBox->Enabled = false;
+				this->selectedProto_ComboBox->Visible = true;
+				this->selectedProto_ComboBox->Enabled = true;
+				this->selectedProto->Visible = true;
+				this->selectedProto->Enabled = true;
 				this->settingsButton->Visible = false;
 				this->settingsButton->Enabled = false;
 				this->dataGrid->Visible = false;
@@ -1091,8 +1094,6 @@ namespace EasySniff {
 				this->packetDataButton->Enabled = false;
 				this->packetInfoDataGrid->Visible = true;
 				this->packetInfoDataGrid->Enabled = true;
-				this->selectedProto->Visible = false;
-				this->selectedProto->Enabled = false;
 				this->Text = "EasySniff | Packet Manager";
 			}
 		private: System::Void dataGrid_RowsAdded(System::Object^ sender, System::Windows::Forms::DataGridViewRowsAddedEventArgs^ e) {

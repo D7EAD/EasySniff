@@ -860,6 +860,7 @@ namespace EasySniff {
 			getDevices(this->interfaceList); // get all interfaces on startup
 			this->packetInf->ipList->Add("");
 			this->selectedProto_ComboBox->SelectedIndex = 0;
+			this->interfaceList->SelectedIndex = 0;
 		}
 		private: System::Void clearRowsButton_Click(System::Object^ sender, System::EventArgs^  e) {
 			this->dataGrid->Rows->Clear();

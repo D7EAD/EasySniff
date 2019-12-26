@@ -69,6 +69,8 @@ EasySniff has a few control schemes--shortcuts--for some functions that it perfo
     - ...to begin or end the sniffing process.
   - Single click [any mouse key]:
     - ...to copy any selected data in any shown cell.
+  - Single click [any mouse key] + D:
+    - ...to remove a specific row from the captured IPs until [Clear].
   - Single click [any mouse key] + P:
     - ...to perform a port scan on an IP from an appropriate cell.
   - Double click [any mouse key]:

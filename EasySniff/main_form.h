@@ -41,13 +41,10 @@ namespace EasySniff {
 		private: System::Windows::Forms::Button^ clearRowsButton;
 		private: packetInfo^ packetInf;
 		private: System::Windows::Forms::Label^ bottomPanel;
-
 		private: System::Windows::Forms::Button^ settingsButton;
 		private: System::Windows::Forms::Button^ backToSnifferButton;
 		private: System::Windows::Forms::Button^ settingsSaveButton;
-
 		private: System::Windows::Forms::Label^ saveResultsDialog;
-
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IP;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ srcPort;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ dstPort;
@@ -70,23 +67,19 @@ namespace EasySniff {
 		private: bool portScanKeyDown = false;
 		private: bool rowClearScanKeyDown = false;
 		private: bool threadStopped = false;
-
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ checksum;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ fragOptions;
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ Payload;
-
 		private: System::Windows::Forms::ComboBox^ selectedProto_ComboBox;
-	private: System::Windows::Forms::Label^ selectedProto;
-	private: System::Windows::Forms::Label^ packetDataGridRowCount;
-	private: System::Windows::Forms::Label^ rowCount;
-	private: System::Windows::Forms::Label^ interfaceStatusField;
-	private: System::Windows::Forms::Label^ sniffStatusField;
-	private: System::Windows::Forms::Timer^ keyClearHandler;
-
-
-	private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
+		private: System::Windows::Forms::Label^ selectedProto;
+		private: System::Windows::Forms::Label^ packetDataGridRowCount;
+		private: System::Windows::Forms::Label^ rowCount;
+		private: System::Windows::Forms::Label^ interfaceStatusField;
+		private: System::Windows::Forms::Label^ sniffStatusField;
+		private: System::Windows::Forms::Timer^ keyClearHandler;
+		private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
 
 		public: main_form(void) {
 			InitializeComponent();

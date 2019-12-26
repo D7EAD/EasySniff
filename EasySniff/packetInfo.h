@@ -43,5 +43,5 @@ ref class packetInfo {
 	public: System::String^ portScan(unsigned int port);
 	public: array<System::String^>^ getExtendedInfo(); // returns extended packet data
 	public: array<System::String^>^ getInfo(); // returns a row of data located in <data>
-	public: void getInterface(ComboBox^ comboBox);
+	public: void getInterface(ComboBox^ comboBox); 
 };

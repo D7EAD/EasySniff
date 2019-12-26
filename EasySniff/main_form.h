@@ -68,6 +68,7 @@ namespace EasySniff {
 		private: System::Windows::Forms::Label^ echoCount_Label;
 		private: System::Windows::Forms::ComboBox^ echoCount;
 		private: bool portScanKeyDown = false;
+		private: bool rowClearScanKeyDown = false;
 		private: bool threadStopped = false;
 
 		private: System::Windows::Forms::DataGridViewTextBoxColumn^ IPandPorts;
@@ -82,6 +83,8 @@ namespace EasySniff {
 	private: System::Windows::Forms::Label^ rowCount;
 	private: System::Windows::Forms::Label^ interfaceStatusField;
 	private: System::Windows::Forms::Label^ sniffStatusField;
+	private: System::Windows::Forms::Timer^ keyClearHandler;
+
 
 	private: Thread^ t1 = gcnew Thread(gcnew ThreadStart(this, &main_form::asyncSniff));
 
@@ -139,12 +142,13 @@ namespace EasySniff {
 		}
 
 		void InitializeComponent(void) {
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			this->components = (gcnew System::ComponentModel::Container());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(main_form::typeid));
 			this->sniffButton = (gcnew System::Windows::Forms::Button());
 			this->namePanel = (gcnew System::Windows::Forms::Label());
@@ -185,6 +189,7 @@ namespace EasySniff {
 			this->rowCount = (gcnew System::Windows::Forms::Label());
 			this->interfaceStatusField = (gcnew System::Windows::Forms::Label());
 			this->sniffStatusField = (gcnew System::Windows::Forms::Label());
+			this->keyClearHandler = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGrid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->packetInfoDataGrid))->BeginInit();
 			this->SuspendLayout();
@@ -234,29 +239,29 @@ namespace EasySniff {
 			this->dataGrid->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGrid->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
 			this->dataGrid->ClipboardCopyMode = System::Windows::Forms::DataGridViewClipboardCopyMode::EnableAlwaysIncludeHeaderText;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Consolas", 10));
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGrid->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Consolas", 10));
+			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGrid->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this->dataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->IP, this->srcPort,
 					this->dstPort, this->ISP, this->Location, this->Protected
 			});
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Consolas", 10));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Consolas", 10));
+			dataGridViewCellStyle8->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGrid->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGrid->DefaultCellStyle = dataGridViewCellStyle8;
 			this->dataGrid->EnableHeadersVisualStyles = false;
 			this->dataGrid->GridColor = System::Drawing::Color::White;
 			this->dataGrid->Location = System::Drawing::Point(-1, 88);
@@ -266,12 +271,12 @@ namespace EasySniff {
 			this->dataGrid->RowHeadersVisible = false;
 			this->dataGrid->RowHeadersWidth = 51;
 			this->dataGrid->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle9->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			this->dataGrid->RowsDefaultCellStyle = dataGridViewCellStyle3;
+			this->dataGrid->RowsDefaultCellStyle = dataGridViewCellStyle9;
 			this->dataGrid->RowTemplate->Height = 24;
 			this->dataGrid->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->dataGrid->ShowCellErrors = false;
@@ -477,29 +482,29 @@ namespace EasySniff {
 			this->packetInfoDataGrid->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->packetInfoDataGrid->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
 			this->packetInfoDataGrid->ClipboardCopyMode = System::Windows::Forms::DataGridViewClipboardCopyMode::EnableAlwaysIncludeHeaderText;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Consolas", 8));
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->packetInfoDataGrid->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle10->Font = (gcnew System::Drawing::Font(L"Consolas", 8));
+			dataGridViewCellStyle10->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle10->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle10->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->packetInfoDataGrid->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
 			this->packetInfoDataGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->packetInfoDataGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->IPandPorts,
 					this->Protocol, this->checksum, this->fragOptions, this->Payload
 			});
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Consolas", 8));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle11->Font = (gcnew System::Drawing::Font(L"Consolas", 8));
+			dataGridViewCellStyle11->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle11->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->packetInfoDataGrid->DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle11->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle11->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->packetInfoDataGrid->DefaultCellStyle = dataGridViewCellStyle11;
 			this->packetInfoDataGrid->Enabled = false;
 			this->packetInfoDataGrid->EnableHeadersVisualStyles = false;
 			this->packetInfoDataGrid->Font = (gcnew System::Drawing::Font(L"Consolas", 8));
@@ -511,12 +516,12 @@ namespace EasySniff {
 			this->packetInfoDataGrid->RowHeadersVisible = false;
 			this->packetInfoDataGrid->RowHeadersWidth = 51;
 			this->packetInfoDataGrid->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
-			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			dataGridViewCellStyle6->ForeColor = System::Drawing::Color::White;
-			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle12->ForeColor = System::Drawing::Color::White;
+			dataGridViewCellStyle12->SelectionBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			this->packetInfoDataGrid->RowsDefaultCellStyle = dataGridViewCellStyle6;
+			this->packetInfoDataGrid->RowsDefaultCellStyle = dataGridViewCellStyle12;
 			this->packetInfoDataGrid->RowTemplate->Height = 24;
 			this->packetInfoDataGrid->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->packetInfoDataGrid->ShowCellErrors = false;
@@ -748,6 +753,11 @@ namespace EasySniff {
 			this->sniffStatusField->TabIndex = 40;
 			this->sniffStatusField->Text = L"Sniffing: off";
 			// 
+			// keyClearHandler
+			// 
+			this->keyClearHandler->Interval = 200;
+			this->keyClearHandler->Tick += gcnew System::EventHandler(this, &main_form::KeyClearHandler_Tick);
+			// 
 			// main_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
@@ -861,8 +871,13 @@ namespace EasySniff {
 		}
 		private: System::Void copyCellContent(System::Object^ sender, DataGridViewCellMouseEventArgs^  e) {
 			try {
-				if (!this->portScanKeyDown) {
+				if (!this->portScanKeyDown && !this->rowClearScanKeyDown) {
 					Clipboard::SetText(this->dataGrid->Rows[e->RowIndex]->Cells[e->ColumnIndex]->Value->ToString());
+				}
+				else if (this->rowClearScanKeyDown) {
+					this->rowClearScanKeyDown = false;
+//					this->packetInf->ipList->Remove(this->dataGrid->Rows[e->RowIndex]->Cells[0]->Value->ToString());
+					this->dataGrid->Rows->RemoveAt(e->RowIndex);
 				}
 				else if (this->portScanKeyDown) {
 					this->portScanKeyDown = false;
@@ -1127,6 +1142,11 @@ namespace EasySniff {
 		private: System::Void dataGrid_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 			if (e->KeyCode == Keys::P) {
 				this->portScanKeyDown = true;
+				this->keyClearHandler->Enabled = true;
+			}
+			else if (e->KeyCode == Keys::D) {
+				this->rowClearScanKeyDown = true;
+				this->keyClearHandler->Enabled = true;
 			}
 			else if (e->KeyCode == Keys::S) {
 				this->sniffButton_Click(this, e);
@@ -1162,6 +1182,11 @@ namespace EasySniff {
 				settings_values::udpEnabled = false;
 				this->selectedProto->Text = "Protocol: TCP";
 			}
+		}
+		private: System::Void KeyClearHandler_Tick(System::Object^ sender, System::EventArgs^ e) {
+			this->portScanKeyDown = false;
+			this->rowClearScanKeyDown = false;
+			this->keyClearHandler->Enabled = false;
 		}
 	};
 }

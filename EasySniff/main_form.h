@@ -857,6 +857,7 @@ namespace EasySniff {
 		}
 		private: System::Void clearRowsButton_Click(System::Object^ sender, System::EventArgs^  e) {
 			this->dataGrid->Rows->Clear();
+			this->packetInf->ipList->Erase(this->packetInf->ipList.begin(), this->packetInf->ipList.end());
 			this->packetInf->ipList->Clear();
 			this->packetInf->ipList->Add("");
 			this->packetInfoDataGrid->Rows->Clear();

@@ -3,8 +3,6 @@
 	main_form.h : The main form for EasySniff. It includes the sniffer and the entry points for other functions.
 				  Functions such as ICMP Manager, IP Lookup, and Data Manager.
 
-	TODO:
-		Add key shortcuts for sniffing and clearing.
 */
 
 #pragma once

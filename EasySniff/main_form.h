@@ -858,7 +858,7 @@ namespace EasySniff {
 		private: System::Void clearRowsButton_Click(System::Object^ sender, System::EventArgs^  e) {
 			this->dataGrid->Rows->Clear();
 			this->packetInf->ipList->Clear();
-			this->packetInf->ipList->shrink_to_fit();
+			this->packetInf->ipList->Population = NULL; unroot object instance
 			this->packetInf->ipList->Add("");
 			this->packetInfoDataGrid->Rows->Clear();
 			this->rowCount->Text = "Rows: 0";

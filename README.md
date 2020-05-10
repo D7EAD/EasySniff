@@ -109,3 +109,4 @@ EasySniff version is 1.1.
 # Known Issues
   - Incremental use of RAM throughout life of the process (EasySniff.exe).
   - Doesn't work for some VPN providers and tunnels.
+  - IP Lookup API isn't valid anymore. Don't feel like adding a new one.

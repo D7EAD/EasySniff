@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/defec1iv3/EasySniff/blob/master/images/icon.ico" width="190px" height="190px" align="center">
+  <img src="https://github.com/0xDEFEC/EasySniff/blob/master/images/icon.ico" width="190px" height="190px" align="center">
   <i>EasySniff</i>
 </p>
 
@@ -30,7 +30,7 @@ EasySniff REQUIRES the following in order to operate:
 # Tutorial
 As some may have issues using EasySniff, a tutorial is here to help! The general process of installation and usage is as follows below:
   - Download and install the dependencies listed above.
-  - Download the <a href="https://github.com/defec1iv3/EasySniff/archive/master.zip">.zip</a> file from this repository.
+  - Download the <a href="https://github.com/0xDEFEC/EasySniff/archive/master.zip">.zip</a> file from this repository.
   - Run setup\Release\setup.msi, this will install it to your Program Files.
     - After installation, EasySniff will now be added to your Desktop.
   - Open EasySniff and it should run fine.
@@ -54,7 +54,7 @@ Some functions and features within EasySniff are as follows:
   - Options to show more advanced data regarding captured packets.
   - ...and more!
 <p align="center">
-  <img src="https://github.com/defec1iv3/EasySniff/blob/master/images/img_main.PNG" width="1000" height="370">
+  <img src="https://github.com/0xDEFEC/EasySniff/blob/master/images/img_main.PNG" width="1000" height="370">
 </p>
 
 <br/>

@@ -22,7 +22,7 @@ Sections of EasySniff are as follows:
 
 # Dependencies
 EasySniff REQUIRES the following in order to operate:
-  - WinPCap 4.1.3 (found <a href="http://www.winpcap.org">here</a>).
+  - WinPCap 4.1.3 (found <a href="https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe">here</a>).
   - MSVC++ 2019 redist (found <a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">here</a>).
 
 <br/>

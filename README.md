@@ -93,7 +93,7 @@ All responsibility of this program's usage is assumed by, and only by, the user.
 <br/>
 
 # Credits
-Programming, GUI Design: defect1v3 (defec1iv3/Malversed/Disassembly)
+Programming, GUI Design: 0xDEFEC
 
 Quality Assurance Testers (Bug Testers): Johnny
 

@@ -102,7 +102,9 @@ Quality Assurance Testers (Bug Testers): Johnny
 # Notes
 EasySniff version is 1.1.
 
-This was made to prove to morons how easy it is to make a sniffer.
+This was made to prove how easy it is to make a sniffer.
+
+Bandwidth listed under "Protected" is advertised network capacity, not protection capacity.
 
 <br/>
 

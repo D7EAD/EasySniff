@@ -93,7 +93,7 @@ All responsibility of this program's usage is assumed by, and only by, the user.
 <br/>
 
 # Credits
-Programming, GUI Design: 0xDEFEC
+Programming, GUI Design: d7ead
 
 Quality Assurance Testers (Bug Testers): Johnny
 

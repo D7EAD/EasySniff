@@ -3,6 +3,9 @@
   <i>EasySniff</i>
 </p>
 
+<h1 align="center">NOTE</h1>
+<p align="center">This is no Wireshark-esc network utility. The original motivation behind this repository was to show how easy it can be to write a simple network tool. Specifically, the idea came from annoying people on the internet that are obsessed with IP addresses and brag about them as if they are some magical, secret number.</p>
+
 # Abstract
 EasySniff is a smooth, clean, and effective network sniffing tool. It abstracts unnecessary technical information and makes monitoring traffic a lot easier for users. It provides a clean GUI with customizable tools and settings that the user can put to use. This tool was made to be used as an alternative to some other sniffers that may seem haphazardly made. Furthermore, it is to be used for educational purposes in the sector of network-oriented programming.
 

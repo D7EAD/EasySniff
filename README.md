@@ -53,9 +53,6 @@ Some functions and features within EasySniff are as follows:
   - Ability to look up more narrowed, specific information regarding an address.
   - Options to show more advanced data regarding captured packets.
   - ...and more!
-<p align="center">
-  <img src="https://github.com/0xDEFEC/EasySniff/blob/master/images/img_main.PNG" width="1000" height="370">
-</p>
 
 <br/>
 
